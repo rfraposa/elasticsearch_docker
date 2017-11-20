@@ -21,14 +21,9 @@ WORKDIR /home/elastic
 USER 1000
 
 # Download and extract Elastic Stack components
-RUN curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.0.0.tar.gz | \
-    tar zx 
-
-#RUN curl -fsSL https://artifacts.elastic.co/downloads/kibana/kibana-6.0.0-linux-x86_64.tar.gz | \
-#    tar zx 
-
-#RUN curl -fsSL https://artifacts.elastic.co/downloads/logstash/logstash-6.0.0.tar.gz | \
-#    tar zx
+RUN curl -fsSL https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.0.0.tar.gz 
+RUN tar zx  elasticsearch-6.0.0.tar.gz 
+RUN curl -fsSL https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.0.0.zip 
 
 #Setup sshd so users can ssh between Docker containers
 USER root
@@ -57,7 +52,7 @@ COPY conf/supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /root/start-scripts/
 COPY scripts/ /root/start-scripts/
 
-RUN echo "elastic:elastic" | chpasswd
-EXPOSE 22
+RUN echo "elastic:password" | chpasswd
+EXPOSE 22 9200 9300 4100 5100
 COPY conf/startup.sh /root/
 CMD ["/root/startup.sh"]

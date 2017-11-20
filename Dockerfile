@@ -53,6 +53,6 @@ RUN mkdir -p /root/start-scripts/
 COPY scripts/ /root/start-scripts/
 
 RUN echo "elastic:password" | chpasswd
-EXPOSE 22 9200 9300 4100 5100
+EXPOSE 22 
 COPY conf/startup.sh /root/
 CMD ["/root/startup.sh"]

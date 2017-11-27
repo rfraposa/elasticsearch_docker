@@ -44,9 +44,6 @@ RUN touch /home/elastic/.ssh/authorized_keys \
     && chown -R elastic:elastic /etc/ssh/ \
     && chown -R elastic:elastic /home/elastic/
 
-#RUN sed -i  '$a /sbin/sshd' /etc/rc.local
-#RUN chmod +x /etc/rc.local
-
 RUN mkdir -p /etc/supervisor/conf.d
 COPY conf/supervisord.conf /etc/supervisor/supervisord.conf
 RUN mkdir -p /root/start-scripts/

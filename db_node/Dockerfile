@@ -11,6 +11,6 @@ RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
 
 #Install mysql
 RUN yum install -y mysql-server
-RUN systemctl start mysqld
+#RUN systemctl start mysqld
 
-#CMD ["/root/startup.sh"]
+CMD ["mysqld"]

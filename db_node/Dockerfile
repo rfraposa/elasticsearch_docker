@@ -6,7 +6,7 @@ LABEL maintainer "Rich Raposa <rich.raposa@elastic.co>"
 RUN cd /root/
 RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
 RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
-RUN yum update
+RUN yum update && yum install wget
 
 #Install mysql
 RUN yum install mysql-server

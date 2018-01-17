@@ -20,11 +20,6 @@ WORKDIR /home/elastic
 
 USER 1000
 
-# Download and extract Elastic Stack components
-RUN curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.0.0.tar.gz 
-RUN tar zxf  elasticsearch-6.0.0.tar.gz 
-RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.0.0.zip 
-
 #Setup sshd so users can ssh between Docker containers
 USER root
 RUN ssh-keygen -t rsa -N "" -f /etc/ssh/ssh_host_key \
@@ -52,4 +47,10 @@ COPY scripts/ /root/start-scripts/
 RUN echo "elastic:password" | chpasswd
 EXPOSE 22 
 COPY conf/startup.sh /root/
+
+# Download and extract Elastic Stack components
+RUN curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.tar.gz 
+RUN tar zxf  elasticsearch-6.1.2.tar.gz 
+RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.1.2.zip 
+
 CMD ["/root/startup.sh"]

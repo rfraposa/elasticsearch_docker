@@ -20,4 +20,6 @@ RUN chown -R elastic:elastic /usr/sbin/mysql*
 #Copy over the script to start mysqld
 #COPY conf/mysqld.conf /etc/supervisor/conf.d/mysqld.conf
 
+RUN echo "root:password" | chpasswd
+
 CMD ["/root/startup.sh"]

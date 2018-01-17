@@ -1,0 +1,12 @@
+docker run -d --restart always --privileged --dns 8.8.8.8 --name node1 -h node1 --publish-all=true -d  --net=es_bridge --ip 172.18.0.2  -i -t elastic/db_node
+
+
+#Starts up a node
+docker run -d --restart always --privileged --dns 8.8.8.8 --name node1 -h node1 --publish-all=true -d  --net=es_bridge --ip 172.18.0.2 --link es-postgres:postgres  -i -t elastic/db_node
+
+#Starts up postgres
+docker run --restart always --privileged --dns 8.8.8.8 --name es-postgres -h postgres --ip 172.18.0.20 --net=es_bridge -e POSTGRES_PASSWORD=password -d postgres
+
+
+#From within a container, to connect to postgres using psql:
+psql -h postgres -p 5432 -U postgres

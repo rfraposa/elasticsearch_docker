@@ -12,8 +12,10 @@ RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
 #Install mysql
 RUN yum install -y mysql-server
 
+#Initialize mysql
+RUN /usr/sbin/mysqld --initialize-insecure --user=elastic
+
 #Copy over the script to start mysqld
-#COPY scripts/ /root/start-scripts/
 COPY conf/mysqld.conf /etc/supervisor/conf.d/mysqld.conf
 
 CMD ["/root/startup.sh"]

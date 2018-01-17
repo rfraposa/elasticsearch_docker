@@ -52,5 +52,6 @@ COPY conf/startup.sh /root/
 RUN curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.tar.gz 
 RUN tar zxf  elasticsearch-6.1.2.tar.gz 
 RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.1.2.zip 
+RUN chown -R elastic:elastic /home/elastic/*
 
 CMD ["/root/startup.sh"]

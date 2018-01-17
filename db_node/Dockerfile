@@ -2,18 +2,24 @@
 FROM elastic/node
 LABEL maintainer "Rich Raposa <rich.raposa@elastic.co>"
 
-#Download and add the mysql repo
 WORKDIR /root/
-RUN yum install -y wget
-RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
-RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
+
+RUN yum install -y postgresql
+
+
+
+#Download and add the mysql repo
+
+#RUN yum install -y wget
+#RUN wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+#RUN rpm -ivh mysql-community-release-el7-5.noarch.rpm
 #RUN yum update 
 
 #Install mysql
-RUN yum install -y mysql-server
+#RUN yum install -y mysql-server
 
 #Initialize mysql
-RUN chown -R elastic:elastic /usr/sbin/mysql*
+#RUN chown -R elastic:elastic /usr/sbin/mysql*
 
 #RUN /usr/sbin/mysqld --initialize --user=mysql
 

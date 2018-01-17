@@ -6,7 +6,7 @@ LABEL maintainer "Rich Raposa <rich.raposa@elastic.co>"
 ENV PATH /home/elastic/bin:$PATH
 ENV JAVA_HOME /usr/lib/jvm/jre-1.8.0-openjdk
 
-RUN yum install -y java-1.8.0-openjdk-headless unzip which
+RUN yum install -y java-1.8.0-openjdk-headless unzip which 
 
 RUN groupadd -g 1000 elastic && \
     adduser -u 1000 -g 1000 elastic
@@ -15,6 +15,7 @@ RUN groupadd -g 1000 elastic && \
 RUN yum install -y python-setuptools python-setuptools-devel iproute
 RUN easy_install supervisor
 RUN yum -y install openssh-server  openssh-clients
+RUN yum install -y postgresql
 
 WORKDIR /home/elastic
 

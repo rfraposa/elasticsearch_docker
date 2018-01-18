@@ -19,6 +19,7 @@
 172.18.0.20     server19
 172.18.0.21     server20
 
+172.18.0.30		db_server
 
 
 127.0.0.1 localhost

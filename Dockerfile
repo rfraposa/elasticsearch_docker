@@ -33,6 +33,7 @@ RUN mkdir /home/elastic/.ssh
 COPY conf/id_rsa /home/elastic/.ssh/id_rsa
 COPY conf/id_rsa.pub /home/elastic/.ssh/id_rsa.pub
 COPY conf/sshd_config /etc/ssh/
+COPY conf/hosts	 /etc/
 
 RUN touch /home/elastic/.ssh/authorized_keys \
     && cat /home/elastic/.ssh/id_rsa.pub >> /home/elastic/.ssh/authorized_keys \

@@ -1,0 +1,32 @@
+172.18.0.2      server1
+172.18.0.3      server2
+172.18.0.4      server3
+172.18.0.5      server4
+172.18.0.6      server5
+172.18.0.7      server6
+172.18.0.8      server7
+172.18.0.9      server8
+172.18.0.10     server9
+172.18.0.11     server10
+172.18.0.12      server11
+172.18.0.13      server12
+172.18.0.14      server13
+172.18.0.15      server14
+172.18.0.16      server15
+172.18.0.17      server16
+172.18.0.18      server17
+172.18.0.19      server18
+172.18.0.20     server19
+172.18.0.21     server20
+
+
+
+127.0.0.1 localhost
+
+# The following lines are desirable for IPv6 capable hosts
+::1 ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts

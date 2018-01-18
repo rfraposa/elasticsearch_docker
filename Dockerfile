@@ -52,11 +52,11 @@ COPY conf/startup.sh /root/
 
 # Download and extract Elastic Stack components
 RUN curl -O https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.1.2.tar.gz 
-RUN tar zxf  elasticsearch-6.1.2.tar.gz 
+RUN tar zxf  elasticsearch-6.1.2.tar.gz && rm elasticsearch-6.1.2.tar.gz
 RUN curl -O https://artifacts.elastic.co/downloads/logstash/logstash-6.1.2.tar.gz 
-RUN tar zxf  logstash-6.1.2.tar.gz 
+RUN tar zxf  logstash-6.1.2.tar.gz && rm logstash-6.1.2.tar.gz
 RUN curl -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.1.2-linux-x86_64.tar.gz
-RUN tar zxf  filebeat-6.1.2-linux-x86_64.tar.gz
+RUN tar zxf  filebeat-6.1.2-linux-x86_64.tar.gz && rm filebeat-6.1.2-linux-x86_64.tar.gz
 RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.1.2.zip 
 
 # Download the Postgres JDBC driver for Logstash

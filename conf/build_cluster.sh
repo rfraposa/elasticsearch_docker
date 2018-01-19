@@ -13,7 +13,7 @@ echo "Starting $1 servers..."
 for (( i=1; i<=$1; ++i));
 do
 ip=$((i+1))
-CID=$(docker run -d --restart always --privileged --dns 8.8.8.8 -e PGHOST=db_server -e PGUSER=postgres --name server$i -h server$i --publish-all=true -d  --net=es_bridge --ip 172.18.0.$ip  -i -t elastic/server)
+CID=$(docker run -d --restart always --privileged --dns 8.8.8.8  --name server$i -h server$i --publish-all=true -d  --net=es_bridge --ip 172.18.0.$ip  -i -t elastic/server)
 server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server$i)
 echo "Started server$i on IP $server_ip"
 done

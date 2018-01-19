@@ -61,8 +61,11 @@ RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.1.2.zip
 
 # Download the Postgres JDBC driver for Logstash
 RUN curl -O http://central.maven.org/maven2/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar
+ENV PGHOST db_server
+ENV PGUSER postgres
 
 RUN chown -R elastic:elastic /home/elastic/*
+
 
 CMD ["/root/startup.sh"]
 

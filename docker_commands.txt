@@ -6,4 +6,4 @@ docker run --restart always --privileged --dns 8.8.8.8 --name db_node -h db_node
 
 
 #From within a container, to connect to postgres using psql:
-psql -h db_node -p 5432 -U postgres
+psql -h db_server -U postgres

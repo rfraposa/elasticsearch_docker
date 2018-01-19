@@ -2,12 +2,6 @@
 
 rm -rf /home/elastic/.ssh/known_hosts
 
-#This script starts everything from scratch, so BE WARNED that it kills are currently running docker containers
-docker ps | grep server | awk '{print $1}' | xargs docker stop
-docker ps -a | grep server | awk '{print $1}' | xargs docker rm
-
-
-
 #Start the containers
 echo "Starting $1 servers..."
 for (( i=1; i<=$1; ++i));

@@ -7,8 +7,8 @@ echo "Starting $1 servers..."
 
 ip=2
 CID=$(docker run -d --restart always --privileged --dns 8.8.8.8  --name server1 -h server1 --publish-all=true -d  --net=es_bridge --ip 172.18.0.$ip -p 9200:9200 -i -t elastic/server)
-server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server$i)
-echo "Started server$i on IP $server_ip"
+server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server1)
+echo "Started server1 on IP $server_ip"
 
 
 for (( i=2; i<=$1; ++i));

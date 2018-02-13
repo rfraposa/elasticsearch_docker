@@ -57,11 +57,13 @@ RUN curl -O https://artifacts.elastic.co/downloads/packs/x-pack/x-pack-6.2.1.zip
 # Download the Postgres JDBC driver for Logstash
 RUN curl -O http://central.maven.org/maven2/postgresql/postgresql/9.1-901-1.jdbc4/postgresql-9.1-901-1.jdbc4.jar
 
+COPY conf/.vimrc /home/elastic/
 RUN chown -R elastic:elastic /home/elastic/*
 
 EXPOSE 22 9200 5601
 
 RUN yum -y install wget sudo vim ifconfig
+
 
 CMD ["/root/startup.sh"]
 

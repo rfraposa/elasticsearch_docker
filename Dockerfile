@@ -47,7 +47,7 @@ RUN mkdir -p /root/start-scripts/
 COPY scripts/ /root/start-scripts/
 
 RUN echo "elastic:password" | chpasswd
-EXPOSE 22 
+RUN echo "root:password" | chpasswd
 COPY conf/startup.sh /root/
 
 # Download Elasticsearch and X-Pack 
@@ -59,7 +59,7 @@ RUN curl -O http://central.maven.org/maven2/postgresql/postgresql/9.1-901-1.jdbc
 
 RUN chown -R elastic:elastic /home/elastic/*
 
-EXPOSE 9200 5601
+EXPOSE 22 9200 5601
 
 RUN yum -y install wget sudo vim ifconfig
 

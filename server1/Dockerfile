@@ -11,6 +11,10 @@ RUN curl -O https://artifacts.elastic.co/downloads/logstash/logstash-6.2.1.tar.g
 RUN curl -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-6.2.1-linux-x86_64.tar.gz
 RUN curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.2.1-linux-x86_64.tar.gz
 
+#Download the web log files
+RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer1/blogs_logs.tar.gz
+RUN tar -xf blogs_logs.tar.gz && rm blogs_logs.tar.gz
+
 RUN chown -R elastic:elastic /home/elastic/*
 
 CMD ["/root/startup.sh"]

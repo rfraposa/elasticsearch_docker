@@ -61,7 +61,7 @@ RUN chown -R elastic:elastic /home/elastic/*
 
 EXPOSE 9200 5601
 
-RUN yum -y install wget
+RUN yum -y install wget sudo vim ifconfig
 
 CMD ["/root/startup.sh"]
 

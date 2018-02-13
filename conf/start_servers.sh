@@ -6,7 +6,7 @@ rm -rf /home/elastic/.ssh/known_hosts
 echo "Starting $1 servers..."
 
 ip=2
-CID=$(docker run -d --restart always --privileged --dns 8.8.8.8  --name server1 -h server1 --publish-all=true -d  --net=es_bridge --ip 172.18.0.$ip -p 9200:9200 -i -t elastic/server1)
+CID=$(docker run -d --restart always --privileged --dns 8.8.8.8  --name server1 -h server1 --publish-all=true -d  --net=es_bridge --ip 172.18.0.$ip -p 9200:9200 -p 5601:5601 -i -t elastic/server1)
 server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server1)
 echo "Started server1 on IP $server_ip"
 

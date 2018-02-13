@@ -59,7 +59,7 @@ RUN curl -O http://central.maven.org/maven2/postgresql/postgresql/9.1-901-1.jdbc
 
 RUN chown -R elastic:elastic /home/elastic/*
 
-EXPOSE 9200
+EXPOSE 9200 5601
 
 CMD ["/root/startup.sh"]
 

@@ -15,6 +15,8 @@ RUN curl -O https://artifacts.elastic.co/downloads/kibana/kibana-6.2.1-linux-x86
 RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer1/blogs_logs.tar.gz
 RUN tar -xf blogs_logs.tar.gz && rm blogs_logs.tar.gz
 
+COPY scripts/ home/elastic/
+
 RUN chown -R elastic:elastic /home/elastic/*
 
 CMD ["/root/startup.sh"]

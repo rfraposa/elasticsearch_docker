@@ -1,0 +1,27 @@
+##############################################################################
+#  Filebeat configuration to ingest access logs from the blog website.       #
+#  The data is already in in JSON format and does not need any processing.   #
+#  Extract the blog_access_logs.tar.gz file and set paths correctly          #
+##############################################################################
+
+filebeat.prospectors:
+- type: log
+  enabled: true
+  paths:
+    - /home/elastic/blogs_logs_s*/access_logs-*.log
+
+processors:
+ - decode_json_fields:
+     fields: ['message']
+     target: ''
+     overwrite_keys: true
+
+ - drop_fields:
+     fields: ["message", "prospector", "beat", "source", "offset"]
+
+setup.template.enabled: false
+
+output.elasticsearch:
+  hosts: ["server1:9200"]
+  index: "blogs_access_%{[host]}"
+  bulk_max_size: 1000

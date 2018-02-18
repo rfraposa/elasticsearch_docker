@@ -64,6 +64,10 @@ EXPOSE 22 9200 5601
 
 RUN yum -y install wget sudo vim ifconfig
 
+#We need a shared folder for cluster repos
+RUN mkdir /shared_folder/
+RUN chown elastic:elastic /shared_folder/
+
 
 CMD ["/root/startup.sh"]
 

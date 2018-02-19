@@ -22,6 +22,7 @@ processors:
 setup.template.enabled: false
 
 output.elasticsearch:
-  hosts: ["server1:9200"]
+  hosts: ["localhost:9200"]
   index: "blogs_access_%{[host]}"
+  type: "_doc"
   bulk_max_size: 1000

@@ -24,4 +24,5 @@ setup.template.enabled: false
 output.elasticsearch:
   hosts: ["localhost:9200"]
   index: "blogs_access_%{[host]}"
+  document_type: "_doc"
   bulk_max_size: 1000

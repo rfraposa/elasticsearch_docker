@@ -8,7 +8,7 @@ filebeat.prospectors:
 - type: log
   enabled: true
   paths:
-    - /home/elastic/elastic_blog*/*.log
+    - /home/elastic/blogs_logs/elastic_blog*/*.log
 
 processors:
  - decode_json_fields:

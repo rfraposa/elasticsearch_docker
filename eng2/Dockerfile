@@ -19,7 +19,7 @@ RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer2/
 RUN rm -rf /home/elastic/elasticsearch-6.2.1/data/*
 RUN unzip -q data.zip -d /home/elastic/elasticsearch-6.2.1/data/
 
-COPY scripts/ /home/elastic/
+#COPY scripts/ /home/elastic/
 
 RUN chown -R elastic:elastic /home/elastic/*
 

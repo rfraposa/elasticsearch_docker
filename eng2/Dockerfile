@@ -17,11 +17,13 @@ RUN tar -zxf kibana-6.2.1-linux-x86_64.tar.gz && rm -rf kibana-6.2.1-linux-x86_6
 RUN tar -xzf elasticsearch-6.2.1.tar.gz && rm -rf elasticsearch-6.2.1.tar.gz
 RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer2/data.zip
 RUN rm -rf /home/elastic/elasticsearch-6.2.1/data/
-RUN unzip -q data.zip -d /home/elastic/elasticsearch-6.2.1/
+
+RUN chown -R elastic:elastic /home/elastic/*
+
+RUN su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch-6.2.1/'
 
 #COPY scripts/ /home/elastic/
 
-RUN chown -R elastic:elastic /home/elastic/*
 
 CMD ["/root/startup.sh"]
 

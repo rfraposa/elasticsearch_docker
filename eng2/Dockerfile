@@ -21,6 +21,9 @@ RUN rm -rf /home/elastic/elasticsearch-6.2.1/data/
 RUN su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch-6.2.1/'
 RUN rm -rf /home/elastic/data.zip
 
+#Install elasticsearch Python library
+RUN curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py" && python get-pip.py && pip install elasticsearch
+
 #COPY scripts/ /home/elastic/
 
 CMD ["/root/startup.sh"]

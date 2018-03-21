@@ -18,8 +18,3 @@ CID=$(docker run -d --restart always --privileged --dns 8.8.8.8  --name server$i
 server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' server$i)
 echo "Started server$i on IP $server_ip"
 done
-
-echo "Starting the database server"
-docker run --restart always --privileged --dns 8.8.8.8 --name db_server -h db_server --ip 172.18.0.30  --net=es_bridge -e POSTGRES_PASSWORD=password -d elastic/db_server
-server_ip=$(docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' db_server)
-echo "Database server running on IP $server_ip"

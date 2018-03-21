@@ -18,7 +18,7 @@ RUN su - elastic -c 'tar -xzf logstash-6.2.1.tar.gz && rm -rf logstash-6.2.1.tar
 RUN su - elastic -c 'tar -zxf kibana-6.2.1-linux-x86_64.tar.gz && rm -rf kibana-6.2.1-linux-x86_64.tar.gz && mv kibana-6.2.1-linux-x86_64 kibana'
 RUN su - elastic -c 'tar -xzf elasticsearch-6.2.1.tar.gz && rm -rf elasticsearch-6.2.1.tar.gz && mv elasticsearch-6.2.1 elasticsearch'
 RUN rm -rf /home/elastic/elasticsearch-6.2.1/data/
-RUN su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch-6.2.1/'
+RUN su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch/'
 RUN rm -rf /home/elastic/data.zip
 RUN mv x-pack-6.2.1.zip x-pack.zip
 

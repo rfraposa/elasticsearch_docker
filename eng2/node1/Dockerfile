@@ -9,7 +9,7 @@ WORKDIR /home/elastic
 
 RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer2/data.zip
 
-RUN chown -R elastic:elastic /home/elastic/*
+RUN chown -R elastic:elastic /home/elastic/data.zip
 
 RUN rm -rf /home/elastic/elasticsearch/data/ && su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch/'
 RUN rm -rf /home/elastic/data.zip

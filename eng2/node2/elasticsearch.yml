@@ -1,0 +1,5 @@
+cluster.name: my_cluster
+node.name: node2
+network.host: _site_
+discovery.zen.ping.unicast.hosts: ["server1","server3"]
+discovery.zen.minimum_master_nodes: 2

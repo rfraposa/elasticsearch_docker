@@ -17,8 +17,10 @@ RUN rm -rf /home/elastic/data.zip
 
 COPY elasticsearch.yml /home/elastic/elasticsearch/config/
 COPY jvm.options /home/elastic/elasticsearch/config/
+COPY biketrip_entities.conf/home/elastic/
 
 RUN chown -R elastic:elastic /home/elastic/elasticsearch/config/
+RUN chown -R elastic:elastic /home/elastic/biketrip_entities.conf
 
 CMD ["/root/startup.sh"]
 

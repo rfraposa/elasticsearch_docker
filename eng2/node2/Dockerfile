@@ -6,6 +6,6 @@ COPY elasticsearch.yml /home/elastic/elasticsearch/config/
 COPY jvm.options /home/elastic/elasticsearch/config/
 
 RUN chown -R elastic:elastic /home/elastic/elasticsearch/config/
-
+RUN rm -rf kibana-6* && rm -rf logstash-6*
 CMD ["/root/startup.sh"]
 

@@ -12,15 +12,13 @@ RUN curl -O https://s3-us-west-2.amazonaws.com/training-certification/engineer2/
 RUN chown -R elastic:elastic /home/elastic/data.zip
 
 RUN rm -rf /home/elastic/elasticsearch/data/ && su - elastic -c 'unzip -q data.zip -d /home/elastic/elasticsearch/'
-RUN rm -rf /home/elastic/data.zip
+#RUN rm -rf /home/elastic/data.zip
 
 
 COPY elasticsearch.yml /home/elastic/elasticsearch/config/
 COPY jvm.options /home/elastic/elasticsearch/config/
-COPY biketrip_entities.conf /home/elastic/
 
 RUN chown -R elastic:elastic /home/elastic/elasticsearch/config/
-RUN chown -R elastic:elastic /home/elastic/biketrip_entities.conf 
 
 CMD ["/root/startup.sh"]
 

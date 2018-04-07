@@ -61,6 +61,7 @@ RUN chown -R elastic:elastic /home/elastic/*
 EXPOSE 22 9200 5601
 
 RUN yum -y install wget sudo vim ifconfig
+RUN echo "set bg=dark" >> /etc/vimrc
 
 #We need a shared folder for cluster repos
 RUN mkdir /shared_folder/
